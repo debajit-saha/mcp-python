@@ -1,0 +1,22 @@
+{
+    "servers": {
+        "functionapp101-remote-server": {
+            "type": "http",
+            "url": "https://functionapp101-g8gdang7ghgpe3g7.eastus-01.azurewebsites.net/runtime/webhooks/mcp",
+            "headers": {
+                "x-functions-key": "${input:functionapp101McpHostKey}"
+            }
+        }
+    },
+    "inputs": [
+        {
+            "type": "command",
+            "id": "functionapp101McpHostKey",
+            "command": "azureFunctions.getMcpHostKey",
+            "args": {
+                "resourceId": "/subscriptions/a6ddea5a-2ad9-4638-9b44-b0d8c3e161ae/resourceGroups/ds_ai/providers/Microsoft.Web/sites/functionapp101",
+                "projectType": "McpExtensionServer"
+            }
+        }
+    ]
+}
